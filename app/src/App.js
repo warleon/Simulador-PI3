@@ -20,11 +20,11 @@ function App() {
         <Grid item sx={{ height: 3 / 4 }}>
           <Calendar></Calendar>
         </Grid>
-        <Grid item>
+        <Grid item sx={{ height: 1 / 4 }} >
           <ListBox></ListBox>
         </Grid>
       </Grid>
-    </Grid>
+    </Grid >
   );
 }
 

@@ -8,7 +8,7 @@ import Container from '@mui/material/Container';
 import './listBox.css';
 
 const ListBox = () => (
-  <Container className="listBox">
+  <Container sx={{ width: 1, height: 1 }} className="listBox">
     <Button variant="contained" ><AddCircleOutlineIcon /></Button>
     ListBox Component
   </Container>

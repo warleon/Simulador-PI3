@@ -4,7 +4,7 @@ import './calendar.css';
 import Container from '@mui/material/Container';
 
 const Calendar = () => (
-  <Container className="calendar">
+  <Container sx={{ width: 1, height: 1 }} className="calendar">
     Calendar Component
   </Container>
 );
