@@ -6,15 +6,25 @@ import './components/skill/skill'
 import './components/task/task'
 import ListBox from './components/listBox/listBox';
 import Calendar from './components/calendar/calendar';
+import Grid from '@mui/material/Grid';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <ListBox></ListBox>
-      <ListBox></ListBox>
-      <Calendar></Calendar>
-      <ListBox></ListBox>
-    </div>
+    <Grid container spacing={2} sx={{ width: '100vw', height: '100vh' }} className="App">
+      <Grid item md={3}>
+        <ListBox></ListBox>
+      </Grid>
+      <Grid item md={9}>
+        <Grid item sx={{ height: 3 / 4 }}>
+          <Calendar></Calendar>
+        </Grid>
+        <Grid item>
+          <ListBox></ListBox>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 }
 

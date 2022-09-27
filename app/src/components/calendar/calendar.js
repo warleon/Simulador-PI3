@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './calendar.css';
+import Container from '@mui/material/Container';
 
 const Calendar = () => (
-  <div className="calendar">
+  <Container className="calendar">
     Calendar Component
-  </div>
+  </Container>
 );
 
 Calendar.propTypes = {};
