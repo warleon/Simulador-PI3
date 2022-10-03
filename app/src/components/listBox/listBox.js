@@ -1,16 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import Container from '@mui/material/Container';
+import React from "react";
+// import PropTypes from "prop-types";
+import Container from "@mui/material/Container";
 
+import "./listBox.css";
 
-import './listBox.css';
-
-const ListBox = () => (
+const ListBox = (props) => (
   <Container sx={{ width: 1, height: 1 }} className="listBox">
-    <Button variant="contained" ><AddCircleOutlineIcon /></Button>
-    ListBox Component
+    {props.title}
+    <ul>{props.children}</ul>
   </Container>
 );
 
