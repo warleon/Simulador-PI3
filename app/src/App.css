@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.div-vertical{
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  min-width: 20px;
+}
+*{
+  border: 2px solid red;
+}

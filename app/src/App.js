@@ -1,11 +1,5 @@
 import logo from "./logo.svg";
 import "./App.css";
-import "./components/calendar/calendar";
-import "./components/listBox/listBox";
-import "./components/skill/skill";
-import "./components/task/task";
-import ListBox from "./components/listBox/listBox";
-import Calendar from "./components/calendar/calendar";
 import Grid from "@mui/material/Grid";
 
 function App() {
@@ -15,19 +9,28 @@ function App() {
       spacing={2}
       sx={{ width: "100vw", height: "100vh" }}
       className="App"
+      columns={12}
     >
-      <Grid item md={3}>
-        <ListBox title="Task List"></ListBox>
+      <Grid item md={3} >
+        Lista
       </Grid>
-      <Grid item md={9}>
-        <Grid item sx={{ height: 3 / 4 }}>
-          <Calendar title="Calendar"></Calendar>
+      <Grid item container md={9}  >
+        <Grid item md={2} direction="column">
+          <Grid item className="div-vertical" sx={{ width: 1, height: 48 / 100 }}>URGENTE</Grid>
+          <Grid item className="div-vertical" sx={{ width: 1, height: 48 / 100 }}>NO URGENTE</Grid>
         </Grid>
-        <Grid item sx={{ height: 1 / 4 }}>
-          <ListBox title="Skills List"></ListBox>
+        <Grid item md={5} direction="column">
+          <Grid item>IMPORTANTE</Grid>
+          <Grid item sx={{ width: 1, height: 48 / 100 }}  >primer cuadrante</Grid>
+          <Grid item sx={{ width: 1, height: 48 / 100 }} >tercer cuadrante</Grid>
+        </Grid>
+        <Grid item md={5} direction="column">
+          <Grid item>NO IMPORTANTE</Grid>
+          <Grid item sx={{ width: 1, height: 48 / 100 }}>segundo cuadrante</Grid>
+          <Grid item sx={{ width: 1, height: 48 / 100 }}>cuarto cuadrante</Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </Grid >
   );
 }
 
