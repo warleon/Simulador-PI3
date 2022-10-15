@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './task.css';
-import { autocompleteClasses, Container } from '@mui/material';
+import React from "react";
+import PropTypes from "prop-types";
+import "./task.css";
+import { Container } from "@mui/material";
 
 const Task = (props) => (
   <Container className="task">
-    <span>{props.id}</span>
-    <span>{props.name}</span>
-    <span>{props.date}</span>
+    <div>{props.id}</div>
+    <div>{props.name}</div>
+    <div>{props.date}</div>
   </Container>
 );
 
