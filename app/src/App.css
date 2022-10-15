@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -21,7 +16,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(247, 10, 255);
 }
 
 .App-link {
@@ -38,10 +33,40 @@
 }
 
 .div-vertical{
+  background-color: rgb(211, 181, 247);
   writing-mode: vertical-lr;
   transform: rotate(180deg);
   min-width: 20px;
+  border-radius: 10px;
 }
-*{
-  border: 2px solid red;
+
+.div-horizontal{
+  background-color: rgb(211, 181, 247);
+  writing-mode: horizontal-tb;
+  min-width: 20px;
+  border-radius: 10px;
+  
+}
+
+.cursos{
+  background-color: rgb(211, 181, 247);
+  min-width: 20px;
+  border-radius: 10px;  
+}
+
+.primero{
+  background-color: rgb(253, 253, 216);
+  border-radius: 10px;
+}
+.segundo{
+  background-color: rgb(253, 218, 216);
+  border-radius: 10px;
+}
+.tercero{
+  background-color: rgb(216, 222, 253);
+  border-radius: 10px;
+}
+.cuarto{
+  background-color: rgb(216, 253, 216);
+  border-radius: 10px;
 }
