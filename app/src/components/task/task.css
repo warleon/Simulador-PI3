@@ -1,1 +1,11 @@
-.Task {}
+.Task {
+}
+
+
+.task{
+    background-color: rgb(236, 150, 150);
+    border-radius: 10px;
+    font-size: calc(20px);
+    margin: 50px;
+    font-family: "Times New Roman", Times, serif;
+}

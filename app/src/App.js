@@ -31,13 +31,13 @@ function App() {
         </Grid>
         <Grid item md={5 + 3 / 4} direction="column">
           <Grid item className="div-horizontal" sx={{ width: 1, height: 50, border: 1 }}>IMPORTANTE</Grid>
-          <Grid item className= "primero" my={1} sx={{ width: 1, height: 48 / 100, border: 1 }}>Primer Cuadrante</Grid>
-          <Grid item className= "tercero" my={1} sx={{ width: 1, height: 48 / 100, border: 1 }}>Tercer Cuadrante</Grid>
+          <Grid item className= "primero" my={1} sx={{ width: 1, height: 45 / 100, border: 1 }}>Primer Cuadrante</Grid>
+          <Grid item className= "tercero" my={1} sx={{ width: 1, height: 45 / 100, border: 1 }}>Tercer Cuadrante</Grid>
         </Grid>
         <Grid item md={5 + 3 / 4} direction="column">
           <Grid item className="div-horizontal" sx={{ width: 1, height: 50 , border: 1}}>NO IMPORTANTE</Grid>
-          <Grid item className= "segundo" my={1} sx={{ width: 1, height: 48 / 100, border: 1 }}>Segundo Cuadrante</Grid>
-          <Grid item className= "cuarto" my={1} sx={{ width: 1, height: 48 / 100, border: 1 }}>Cuarto Cuadrante</Grid>
+          <Grid item className= "segundo" my={1} sx={{ width: 1, height: 45 / 100, border: 1 }}>Segundo Cuadrante</Grid>
+          <Grid item className= "cuarto" my={1} sx={{ width: 1, height: 45 / 100, border: 1 }}>Cuarto Cuadrante</Grid>
         </Grid>
       </Grid>
     </Grid>
