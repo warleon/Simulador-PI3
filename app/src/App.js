@@ -6,7 +6,6 @@ import List from "./components/list/list";
 
 import Task from "./components/task/task";
 import { ItemTypes } from "./constants";
-import { v4 as uuid } from "uuid";
 
 function App() {
   const date = new Date();
@@ -14,7 +13,6 @@ function App() {
     date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
 
   let items = [...Array(7).keys()].map((_, i) => ({
-    key: uuid(),
     id: i,
     name: "curso " + i,
     date: dateString,
@@ -30,62 +28,68 @@ function App() {
       <Grid
         item
         className="cursos"
-        md={2.9}
+        md={3}
         sx={{
           width: 1,
           height: 1,
-          maxHeight: 1,
-          overflow: "auto",
           border: 1,
         }}
       >
         <List>{items}</List>
       </Grid>
       <Grid item container md={9} direction="column">
-        <Grid container>
+        <Grid container sx={{ height: 2 / 100 }}>
           <Grid item md={1 / 3}></Grid>
           <Grid
             item
             className="div-horizontal"
-            sx={{ width: 45 / 100, border: 1 }}
+            sx={{ width: 45 / 100, height: 1, border: 1 }}
           >
             IMPORTANTE
           </Grid>
           <Grid
             item
             className="div-horizontal"
-            sx={{ width: 45 / 100, border: 1 }}
+            sx={{ width: 45 / 100, height: 1, border: 1 }}
           >
             NO IMPORTANTE
           </Grid>
         </Grid>
-        <Grid container>
-          <Grid
-            item
-            className="div-vertical"
-            sx={{ height: 47 / 100, border: 1 }}
-          >
+        <Grid container sx={{ height: 23 / 100 }}>
+          <Grid item className="div-vertical" sx={{ height: 1, border: 1 }}>
             URGENTE
           </Grid>
-          <Grid item className="primero" sx={{ width: 45 / 100, border: 1 }}>
+          <Grid
+            item
+            className="primero"
+            sx={{ width: 45 / 100, height: 1, border: 1 }}
+          >
             <List></List>
           </Grid>
-          <Grid item className="segundo" sx={{ width: 45 / 100, border: 1 }}>
+          <Grid
+            item
+            className="segundo"
+            sx={{ width: 45 / 100, height: 1, border: 1 }}
+          >
             <List></List>
           </Grid>
         </Grid>
-        <Grid container>
-          <Grid
-            item
-            className="div-vertical"
-            sx={{ height: 47 / 100, border: 1 }}
-          >
+        <Grid container sx={{ height: 23 / 100 }}>
+          <Grid item className="div-vertical" sx={{ height: 1, border: 1 }}>
             NO URGENTE
           </Grid>
-          <Grid item className="tercero" sx={{ width: 45 / 100, border: 1 }}>
+          <Grid
+            item
+            className="tercero"
+            sx={{ width: 45 / 100, height: 1, border: 1 }}
+          >
             <List></List>
           </Grid>
-          <Grid item className="cuarto" sx={{ width: 45 / 100, border: 1 }}>
+          <Grid
+            item
+            className="cuarto"
+            sx={{ width: 45 / 100, height: 1, border: 1 }}
+          >
             <List></List>
           </Grid>
         </Grid>

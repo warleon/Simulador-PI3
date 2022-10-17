@@ -8,6 +8,7 @@ import { ItemTypes } from "../../constants";
 import Task from "../task/task";
 
 import { useDrop } from "react-dnd";
+import { v4 as uuid } from "uuid";
 
 const useRefState = (initialValue) => {
   const [state, setState] = useState(initialValue);
@@ -20,7 +21,7 @@ const useRefState = (initialValue) => {
 
 const List = (props) => {
   const [children, childrenRef, setChildren] = useRefState(
-    props.children != undefined ? props.children : []
+    props.children !== undefined ? props.children : []
   );
 
   const [collected, drop] = useDrop(() => ({
@@ -33,11 +34,26 @@ const List = (props) => {
       setChildren(result);
     },
   }));
+  function handleRemove(id) {
+    const newList = childrenRef.current.filter((item) => item.id !== id);
+
+    setChildren(newList);
+  }
 
   return (
-    <MuiList className="list" sx={{ width: 1, height: 1 }} ref={drop}>
+    <MuiList
+      className="list"
+      sx={{ width: 1, height: 1, maxHeight: 1, overflow: "auto" }}
+      ref={drop}
+    >
       {children.map((child, i) => (
-        <Task {...child}></Task>
+        <Task
+          key={uuid()}
+          {...child}
+          remove={() => {
+            handleRemove(child.id);
+          }}
+        ></Task>
       ))}
     </MuiList>
   );

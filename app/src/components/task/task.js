@@ -9,13 +9,17 @@ import { ItemTypes } from "../../constants";
 const Task = (props) => {
   const [collected, drag, dragPreview] = useDrag(() => ({
     type: ItemTypes.TASK,
-    item: props,
-    end: () => {
-      console.log("end of drag");
+    item: {
+      id: props.id,
+      name: props.name,
+      date: props.date,
+    },
+    end: (item, monitor) => {
+      if (monitor.didDrop()) props.remove();
     },
   }));
   return (
-    <ListItem className="task" key={props.key} ref={drag} {...collected}>
+    <ListItem className="task" ref={drag} {...collected}>
       <div>{props.id}</div>
       <div>{props.name}</div>
       <div>{props.date}</div>
