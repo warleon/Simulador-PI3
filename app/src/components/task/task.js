@@ -13,9 +13,12 @@ const Task = (props) => {
       id: props.id,
       name: props.name,
       date: props.date,
+      prevParentId: props.parentId,
     },
     end: (item, monitor) => {
-      if (monitor.didDrop()) props.remove();
+      if (monitor.didDrop())
+        if (props.parentId !== monitor.getDropResult()["parentId"])
+          props.remove();
     },
   }));
   return (

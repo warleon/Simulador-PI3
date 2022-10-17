@@ -35,7 +35,7 @@ function App() {
           border: 1,
         }}
       >
-        <List>{items}</List>
+        <List id={0}>{items}</List>
       </Grid>
       <Grid item container md={9} direction="column">
         <Grid container sx={{ height: 2 / 100 }}>
@@ -64,14 +64,14 @@ function App() {
             className="primero"
             sx={{ width: 45 / 100, height: 1, border: 1 }}
           >
-            <List></List>
+            <List id={1}></List>
           </Grid>
           <Grid
             item
             className="segundo"
             sx={{ width: 45 / 100, height: 1, border: 1 }}
           >
-            <List></List>
+            <List id={2}></List>
           </Grid>
         </Grid>
         <Grid container sx={{ height: 23 / 100 }}>
@@ -83,14 +83,14 @@ function App() {
             className="tercero"
             sx={{ width: 45 / 100, height: 1, border: 1 }}
           >
-            <List></List>
+            <List id={3}></List>
           </Grid>
           <Grid
             item
             className="cuarto"
             sx={{ width: 45 / 100, height: 1, border: 1 }}
           >
-            <List></List>
+            <List id={4}></List>
           </Grid>
         </Grid>
       </Grid>

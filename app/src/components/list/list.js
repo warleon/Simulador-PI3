@@ -27,11 +27,12 @@ const List = (props) => {
   const [collected, drop] = useDrop(() => ({
     accept: ItemTypes.TASK,
     drop: (item, monitor) => {
-      console.log(item);
-      console.log(children);
-      const result = [...childrenRef.current, item];
-      console.log(result);
-      setChildren(result);
+      if (item.prevParentId !== props.id) {
+        delete item.prevParentId;
+        const result = [...childrenRef.current, item];
+        setChildren(result);
+      }
+      return { parentId: props.id };
     },
   }));
   function handleRemove(id) {
@@ -49,6 +50,7 @@ const List = (props) => {
       {children.map((child, i) => (
         <Task
           key={uuid()}
+          parentId={props.id}
           {...child}
           remove={() => {
             handleRemove(child.id);
