@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import "./task.css";
 import { Container } from "@mui/material";
@@ -21,11 +21,21 @@ const Task = (props) => {
           props.remove();
     },
   }));
+  const [changeColor, setChangeColor] =useState()
+
+  const handleClick = () => {
+      const randomColors =  '#' + Math.random().toString(16).slice(2,8)
+      setChangeColor(randomColors)
+  }
+  console.log('color', changeColor)
   return (
-    <ListItem className="task" ref={drag} {...collected}>
-      <div>{props.id}</div>
-      <div>{props.name}</div>
-      <div>{props.date}</div>
+    <ListItem style={{backgroundColor:`${changeColor}`}} onClick={handleClick} className="task" ref={drag} {...collected}>
+      <section>
+        <div>{props.id}</div>
+        <div>{props.name}</div>
+        <div>{props.date}</div>
+      </section>
+    
     </ListItem>
   );
 };

@@ -41,6 +41,8 @@ const List = (props) => {
     setChildren(newList);
   }
 
+ 
+
   return (
     <MuiList
       className="list"
@@ -49,6 +51,7 @@ const List = (props) => {
     >
       {children.map((child, i) => (
         <Task
+        
           key={uuid()}
           parentId={props.id}
           {...child}
