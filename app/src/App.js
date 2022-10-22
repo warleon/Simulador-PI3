@@ -6,6 +6,11 @@ import List from "./components/list/list";
 
 import Task from "./components/task/task";
 import { ItemTypes } from "./constants";
+import { red } from "@mui/material/colors";
+
+function randomDate(start, end) {
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
 
 function App() {
   const date = new Date();
@@ -15,7 +20,8 @@ function App() {
   let items = [...Array(7).keys()].map((_, i) => ({
     id: i,
     name: "curso " + i,
-    date: dateString,
+    date: randomDate(new Date("2022/07/10"), new Date("2022/10/22")),
+    color: "red",
   }));
   return (
     <Grid
