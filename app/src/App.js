@@ -48,7 +48,7 @@ function App() {
         </List>
       </Grid>
       <Grid item container md={9} direction="column">
-        <Grid container sx={{ height: 2 / 100 }}>
+        <Grid container sx={{ height: 3 / 200 }}>
           <Grid item className="hiddenHorizontal">
             A
           </Grid>
@@ -69,7 +69,7 @@ function App() {
             NO IMPORTANTE
           </Grid>
         </Grid>
-        <Grid container sx={{ height: 23 / 100 }}>
+        <Grid container sx={{ height: 24 / 100 }}>
           <Grid item className="div-vertical" sx={{ height: 1, border: 1 }}>
             URGENTE
           </Grid>
@@ -90,7 +90,7 @@ function App() {
             <List id={2}></List>
           </Grid>
         </Grid>
-        <Grid container sx={{ height: 23 / 100 }}>
+        <Grid container sx={{ height: 24 / 100 }}>
           <Grid item className="div-vertical" sx={{ height: 1, border: 1 }}>
             NO URGENTE
           </Grid>
