@@ -41,31 +41,26 @@ const List = (props) => {
     setChildren(newList);
   }
 
-  let btn = null
-  if(props.id === 0)btn=<button>boton</button>
-
+  let btn = null;
+  if (props.id === 0) btn = <button>boton</button>;
 
   return (
-    <Container>
-      {btn}
-      <MuiList
-        className="list"
-        sx={{ width: 1, height: 1, maxHeight: 1, overflow: "auto" }}
-        ref={drop}
-      >
-        {children.map((child, i) => (
-          <Task
-          
-            key={uuid()}
-            parentId={props.id}
-            {...child}
-            remove={() => {
-              handleRemove(child.id);
-            }}
-          ></Task>
-        ))}
-      </MuiList>
-    </Container>
+    <MuiList
+      className="list"
+      sx={{ width: 1, height: 1, maxHeight: 1 }}
+      ref={drop}
+    >
+      {children.map((child, i) => (
+        <Task
+          key={uuid()}
+          parentId={props.id}
+          {...child}
+          remove={() => {
+            handleRemove(child.id);
+          }}
+        ></Task>
+      ))}
+    </MuiList>
   );
 };
 

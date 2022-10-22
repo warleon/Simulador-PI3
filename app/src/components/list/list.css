@@ -1,8 +1,9 @@
 .List {
 
+    overflow: "scroll";
 }
 
 .list{
-    margin: 60px;
+    overflow: "scroll";
 }
 
