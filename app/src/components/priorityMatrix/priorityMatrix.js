@@ -5,7 +5,13 @@ import Grid from "@mui/material/Grid";
 import List from "../list/list";
 
 const PriorityMatrix = () => (
-  <Grid item container md={9} direction="column">
+  <Grid
+    item
+    container
+    md={9}
+    direction="column"
+    sx={{ height: 1, minHeight: 1 }}
+  >
     <Grid container sx={{ height: 3 / 200 }}>
       <Grid item className="hiddenHorizontal">
         A
