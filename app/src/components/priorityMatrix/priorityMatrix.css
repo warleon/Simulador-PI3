@@ -1,0 +1,52 @@
+.PriorityMatrix {}
+.div-vertical{
+  background-color: rgb(206, 104, 104);
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  min-width: 20px;
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.div-horizontal{
+  background-color: rgb(206, 104, 104);
+  writing-mode: horizontal-tb;
+  min-width: 20px;
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+ .hiddenHorizontal{
+  color :  rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  writing-mode: horizontal-tb;
+  min-width: 20px;
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+ }
+
+.cursos{
+  background-color: rgb(206, 104, 104);
+  min-width: 20px;
+  border-radius: 10px;  
+}
+
+.primero{
+  background-color: rgb(253, 253, 216);
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+.segundo{
+  background-color: rgb(253, 218, 216);
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+.tercero{
+  background-color: rgb(216, 222, 253);
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
+.cuarto{
+  background-color: rgb(216, 253, 216);
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+}
