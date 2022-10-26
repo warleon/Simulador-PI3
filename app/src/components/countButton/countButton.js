@@ -10,7 +10,7 @@ const CountButton = (props) => {
   }
 
   return (
-    <Button>
+    <Button onClick={handleClick}>
       {" "}
       {props.message}:{count}{" "}
     </Button>

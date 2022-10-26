@@ -12,7 +12,7 @@ const PriorityMatrix = () => (
     direction="column"
     sx={{ height: 1, minHeight: 1 }}
   >
-    <Grid container sx={{ height: 3 / 200 }}>
+    <Grid container sx={{ height: 4 / 100 }}>
       <Grid item className="hiddenHorizontal">
         A
       </Grid>
@@ -33,7 +33,7 @@ const PriorityMatrix = () => (
         NO IMPORTANTE
       </Grid>
     </Grid>
-    <Grid container sx={{ height: 24 / 100 }}>
+    <Grid container sx={{ height: 48 / 100 }}>
       <Grid item className="div-vertical" sx={{ height: 1, border: 1 }}>
         URGENTE
       </Grid>
@@ -44,7 +44,7 @@ const PriorityMatrix = () => (
         <List id={2}></List>
       </Grid>
     </Grid>
-    <Grid container sx={{ height: 24 / 100 }}>
+    <Grid container sx={{ height: 48 / 100 }}>
       <Grid item className="div-vertical" sx={{ height: 1, border: 1 }}>
         NO URGENTE
       </Grid>
