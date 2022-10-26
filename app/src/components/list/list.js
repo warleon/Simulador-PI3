@@ -41,14 +41,11 @@ const List = (props) => {
     setChildren(newList);
   }
 
-  let btn = null;
-  if (props.id === 0) btn = <button>boton</button>;
-
   return (
     <MuiList
-      className="list"
       sx={{ width: 1, height: 1, maxHeight: 1 }}
       ref={drop}
+      style={{ maxHeight: "100%", overflow: "auto", padding: 0 }}
     >
       {children.map((child, i) => (
         <Task
