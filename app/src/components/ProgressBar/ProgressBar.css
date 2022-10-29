@@ -1,0 +1,15 @@
+
+
+.outer-container{
+    border: 1px solid;
+    height: 25px;
+    width: 200%;
+}
+
+.inner-container{
+    height: 100%;
+    background-color: red;
+    width: var(--width);
+    text-align: center;
+    color: #fff;
+}

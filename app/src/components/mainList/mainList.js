@@ -11,10 +11,10 @@ function randomDate(start, end) {
     start.getTime() + Math.random() * (end.getTime() - start.getTime())
   );
 }
-const items = [...Array(13).keys()].map((_, i) => ({
+const items = [...Array(10).keys()].map((_, i) => ({
   id: i,
   name: "curso " + i,
-  date: randomDate(new Date("2022/07/10"), new Date("2022/10/22")),
+  date: randomDate(new Date("2022/07/10"), new Date("2022/10/29")),
   color: "red",
 }));
 
