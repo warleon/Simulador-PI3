@@ -1,23 +1,15 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./list.css";
 import { Container } from "@mui/material";
 import { List as MuiList } from "@mui/material";
 import { ItemTypes } from "../../constants";
 import Task from "../task/task";
+import useRefState from "../../useRefState";
+import GameLogic from "../../gameLogic";
 
 import { useDrop } from "react-dnd";
 import { v4 as uuid } from "uuid";
-
-const useRefState = (initialValue) => {
-  const [state, setState] = useState(initialValue);
-  const stateRef = useRef(state);
-  useEffect(() => {
-    stateRef.current = state;
-  }, [state]);
-  return [state, stateRef, setState];
-};
 
 const List = (props) => {
   const [children, childrenRef, setChildren] = useRefState(
@@ -39,6 +31,23 @@ const List = (props) => {
     const newList = childrenRef.current.filter((item) => item.id !== id);
 
     setChildren(newList);
+  }
+  const eraseChildren = () => {
+    setChildren([]);
+  };
+
+  //add scoring and removal function
+  switch (props.id) {
+    case 1:
+      break;
+    case 2:
+      break;
+    case 3:
+      break;
+    case 4:
+      break;
+    default:
+    //do nothing
   }
 
   return (
