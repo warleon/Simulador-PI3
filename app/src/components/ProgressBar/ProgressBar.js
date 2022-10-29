@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 export default function ProgressBar({percent = '0%'}){
     return <Grid className="outer-container">
         <Grid className="inner-container" style={{'--width': percent}}>
-            {percent} %
+            {percent} 
         </Grid>
     </Grid>;
 }

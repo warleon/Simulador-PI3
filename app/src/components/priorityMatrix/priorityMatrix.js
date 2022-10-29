@@ -14,12 +14,12 @@ const PriorityMatrix = () => (
   >
     <Grid container sx={{ height: 4 / 100 }}>
       <Grid item className="hiddenHorizontal">
-        A
+        
       </Grid>
       <Grid
         item
         className="div-horizontal"
-        sx={{ width: 45 / 100, height: 1, border: 1 }}
+        sx={{ width: 45 / 100, height: 1 }}
         md={true}
       >
         IMPORTANTE
@@ -27,31 +27,31 @@ const PriorityMatrix = () => (
       <Grid
         item
         className="div-horizontal"
-        sx={{ width: 45 / 100, height: 1, border: 1 }}
+        sx={{ width: 45 / 100, height: 1}}
         md={true}
       >
         NO IMPORTANTE
       </Grid>
     </Grid>
     <Grid container sx={{ height: 48 / 100 }}>
-      <Grid item className="div-vertical" sx={{ height: 1, border: 1 }}>
+      <Grid item className="div-vertical" sx={{ height: 1}}>
         URGENTE
       </Grid>
-      <Grid item className="primero" sx={{ height: 1, border: 1 }} md={true}>
+      <Grid item className="primero" sx={{ height: 1 }} md={true}>
         <List id={1}></List>
       </Grid>
-      <Grid item className="segundo" sx={{ height: 1, border: 1 }} md={true}>
+      <Grid item className="segundo" sx={{ height: 1}} md={true}>
         <List id={2}></List>
       </Grid>
     </Grid>
     <Grid container sx={{ height: 48 / 100 }}>
-      <Grid item className="div-vertical" sx={{ height: 1, border: 1 }}>
+      <Grid item className="div-vertical" sx={{ height: 1}}>
         NO URGENTE
       </Grid>
-      <Grid item className="tercero" sx={{ height: 1, border: 1 }} md={true}>
+      <Grid item className="tercero" sx={{ height: 1}} md={true}>
         <List id={3}></List>
       </Grid>
-      <Grid item className="cuarto" sx={{ height: 1, border: 1 }} md={true}>
+      <Grid item className="cuarto" sx={{ height: 1 }} md={true}>
         <List id={4}></List>
       </Grid>
     </Grid>

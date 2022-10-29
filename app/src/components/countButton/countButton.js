@@ -11,10 +11,10 @@ const CountButton = (props) => {
   }
 
   return (
-    <Button onClick={handleClick}>
-      {" "}
+    <button className="btn-dias" onClick={handleClick}>
+      {"Dias pasados "}
       {props.message}:{count}{" "}
-    </Button>
+    </button>
   );
 };
 

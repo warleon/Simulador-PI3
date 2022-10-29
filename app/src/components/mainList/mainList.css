@@ -1,7 +1,6 @@
 .MainList {}
 
 .cursos{
-  background-color: rgb(206, 104, 104);
   min-width: 20px;
-  border-radius: 10px;  
+  border-radius: 10px;
 }

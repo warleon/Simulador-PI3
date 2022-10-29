@@ -36,17 +36,17 @@ function App() {
     <Grid
       container
       spacing={0}
-      sx={{ width: "100vw", height: "100vh" }}
+      sx={{ width: "100vw", height: "100vh", backgroundColor: 'white' }}
       className="App"
+
     >
-      <Grid>
-        <button onClick={increase}>Incrementar</button>
-        <button onClick={decrease}>Disminuir</button>
-        <ProgressBar percent={percent+ '%'} />
+      <Grid className="botones"  sx={{width:"25%"}}>
+        <button className="btn-dis" onClick={decrease}>Disminuir</button>
+        <button className="btn-inc" onClick={increase}>Incrementar</button>
+        <ProgressBar percent={percent + '%'} />
+        <CountButton></CountButton>
       </Grid>
-      <Grid item sx={{ height: 15 / 100 }}>
-        <CountButton message="dias pasados"></CountButton>
-      </Grid>
+    
       <Grid item container sx={{ height: 85 / 100 }}>
         <MainList></MainList>
         <PriorityMatrix></PriorityMatrix>
