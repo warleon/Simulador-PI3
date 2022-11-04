@@ -36,20 +36,6 @@ const List = (props) => {
     setChildren([]);
   };
 
-  //add scoring and removal function
-  switch (props.id) {
-    case 1:
-      break;
-    case 2:
-      break;
-    case 3:
-      break;
-    case 4:
-      break;
-    default:
-    //do nothing
-  }
-
   return (
     <MuiList
       sx={{ width: 1, height: 1, maxHeight: 1 }}

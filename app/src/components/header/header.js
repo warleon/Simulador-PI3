@@ -6,9 +6,10 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 import { useEffect, useState } from "react";
 import GameLogic from "../../gameLogic";
 
-const Header = () => {
+const clamp = (number, min, max) => Math.max(min, Math.min(number, max));
+
+const Header = (props) => {
   const [percent, setPercent] = useState(0);
-  const clamp = (number, min, max) => Math.max(min, Math.min(number, max));
 
   const increase = (n) => {
     setPercent(clamp(percent + n, 0, 100));
@@ -18,7 +19,10 @@ const Header = () => {
   return (
     <div className="header">
       <CountButton
-        onClick={() => increase(20)}
+        onClick={() => {
+          increase(20);
+          props.setDay(clamp(props.day.current + 1, 0, 5));
+        }}
         max={5}
         start={0}
         message="Dia"

@@ -7,8 +7,14 @@ import PriorityMatrix from "./components/priorityMatrix/priorityMatrix";
 import MainList from "./components/mainList/mainList";
 import Header from "./components/header/header";
 import { useEffect, useState } from "react";
+import useRefState from "./useRefState";
 
 function App() {
+  const [day, dayRef, setDay] = useRefState(0);
+  useEffect(() => {
+    console.log(day);
+  }, [day]);
+  const [score, scoreRef, setScore] = useRefState(0);
   return (
     <Grid
       container
@@ -17,11 +23,11 @@ function App() {
       className="App"
     >
       <Grid className="botones" sx={{ width: 8 / 10 }}>
-        <Header></Header>
+        <Header score={score} day={dayRef} setDay={setDay}></Header>
       </Grid>
 
       <Grid item container sx={{ height: 85 / 100 }}>
-        <MainList></MainList>
+        <MainList day={day} score={scoreRef} setScore={setScore}></MainList>
         <PriorityMatrix></PriorityMatrix>
       </Grid>
     </Grid>
