@@ -4,7 +4,7 @@ import "./priorityMatrix.css";
 import Grid from "@mui/material/Grid";
 import List from "../list/list";
 
-const PriorityMatrix = () => (
+const PriorityMatrix = (props) => (
   <Grid
     item
     container
@@ -36,10 +36,10 @@ const PriorityMatrix = () => (
         URGENTE
       </Grid>
       <Grid item className="primero" sx={{ height: 1 }} md={true}>
-        <List id={1}></List>
+        <List id={1} lists={props.lists} setLists={props.setLists}></List>
       </Grid>
       <Grid item className="segundo" sx={{ height: 1 }} md={true}>
-        <List id={2}></List>
+        <List id={2} lists={props.lists} setLists={props.setLists}></List>
       </Grid>
     </Grid>
     <Grid container sx={{ height: 48 / 100 }}>
@@ -47,10 +47,10 @@ const PriorityMatrix = () => (
         NO URGENTE
       </Grid>
       <Grid item className="tercero" sx={{ height: 1 }} md={true}>
-        <List id={3}></List>
+        <List id={3} lists={props.lists} setLists={props.setLists}></List>
       </Grid>
       <Grid item className="cuarto" sx={{ height: 1 }} md={true}>
-        <List id={4}></List>
+        <List id={4} lists={props.lists} setLists={props.setLists}></List>
       </Grid>
     </Grid>
   </Grid>

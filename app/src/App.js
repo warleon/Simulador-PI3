@@ -15,6 +15,12 @@ function App() {
     console.log(day);
   }, [day]);
   const [score, scoreRef, setScore] = useRefState(0);
+  const [lists, listsRef, setLists] = useRefState([[], [], [], [], []]);
+
+  useEffect(() => {
+    console.log(listsRef.current);
+  }, [JSON.stringify(listsRef.current)]);
+
   return (
     <Grid
       container
@@ -27,8 +33,14 @@ function App() {
       </Grid>
 
       <Grid item container sx={{ height: 85 / 100 }}>
-        <MainList day={day} score={scoreRef} setScore={setScore}></MainList>
-        <PriorityMatrix></PriorityMatrix>
+        <MainList
+          lists={listsRef}
+          setLists={setLists}
+          day={day}
+          score={scoreRef}
+          setScore={setScore}
+        ></MainList>
+        <PriorityMatrix lists={listsRef} setLists={setLists}></PriorityMatrix>
       </Grid>
     </Grid>
   );

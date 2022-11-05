@@ -14,27 +14,35 @@ function randomDate(start, end) {
 const items = [...Array(10).keys()].map((_, i) => ({
   id: i,
   name: "curso " + i,
-  date: randomDate(new Date("2022/07/10"), new Date("2022/10/29")),
+  //todo que la fecha sea entre hoy y 7 dias en adelante
+  date: randomDate(new Date(), new Date("2022/11/05")),
   color: "red",
 }));
 
-const MainList = () => (
-  <Grid
-    item
-    className="cursos"
-    md={3}
-    sx={{
-      width: 1,
-      height: 1,
-      minHeight: 1,
-      border: 1,
-    }}
-  >
-    <List id={0} sx={{ height: 1 }}>
-      {items}
-    </List>
-  </Grid>
-);
+const MainList = (props) => {
+  return (
+    <Grid
+      item
+      className="cursos"
+      md={3}
+      sx={{
+        width: 1,
+        height: 1,
+        minHeight: 1,
+        border: 1,
+      }}
+    >
+      <List
+        id={0}
+        sx={{ height: 1 }}
+        setLists={props.setLists}
+        lists={props.lists}
+      >
+        {items}
+      </List>
+    </Grid>
+  );
+};
 
 MainList.propTypes = {};
 

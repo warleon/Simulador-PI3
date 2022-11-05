@@ -17,8 +17,8 @@ const getColorFromDate = (date) => {
   let Difference_In_Time = currentDate.getTime() - date.getTime();
   let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
   let diff = Math.round(Difference_In_Days);
-  if (diff <= 7) return "red";
-  if (diff <= 14) return "yellow";
+  if (diff <= 2) return "red";
+  if (diff <= 4) return "yellow";
   return "green";
 };
 const Task = (props) => {

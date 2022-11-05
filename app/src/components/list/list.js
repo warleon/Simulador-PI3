@@ -23,18 +23,20 @@ const List = (props) => {
         delete item.prevParentId;
         const result = [...childrenRef.current, item];
         setChildren(result);
+        let newLists = props.lists.current;
+        newLists[props.id] = result;
+        props.setLists(newLists);
       }
       return { parentId: props.id };
     },
   }));
-  function handleRemove(id) {
+  function handleRemove(id, pid) {
     const newList = childrenRef.current.filter((item) => item.id !== id);
-
     setChildren(newList);
+    let newLists = props.lists.current;
+    newLists[pid] = newList;
+    props.setLists(newLists);
   }
-  const eraseChildren = () => {
-    setChildren([]);
-  };
 
   return (
     <MuiList
@@ -48,7 +50,7 @@ const List = (props) => {
           parentId={props.id}
           {...child}
           remove={() => {
-            handleRemove(child.id);
+            handleRemove(child.id, props.id);
           }}
         ></Task>
       ))}
