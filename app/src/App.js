@@ -11,15 +11,8 @@ import useRefState from "./useRefState";
 
 function App() {
   const [day, dayRef, setDay] = useRefState(0);
-  useEffect(() => {
-    console.log(day);
-  }, [day]);
   const [score, scoreRef, setScore] = useRefState(0);
   const [lists, listsRef, setLists] = useRefState([[], [], [], [], []]);
-
-  useEffect(() => {
-    console.log(listsRef.current);
-  }, [JSON.stringify(listsRef.current)]);
 
   return (
     <Grid
@@ -29,7 +22,12 @@ function App() {
       className="App"
     >
       <Grid className="botones" sx={{ width: 8 / 10 }}>
-        <Header score={score} day={dayRef} setDay={setDay}></Header>
+        <Header
+          lists={listsRef}
+          score={score}
+          day={dayRef}
+          setDay={setDay}
+        ></Header>
       </Grid>
 
       <Grid item container sx={{ height: 85 / 100 }}>

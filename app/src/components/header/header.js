@@ -7,6 +7,10 @@ import { useEffect, useState } from "react";
 import GameLogic from "../../gameLogic";
 
 const clamp = (number, min, max) => Math.max(min, Math.min(number, max));
+const dayDiff = (a, b) => {
+  let Difference_In_Time = a.getTime() - b.getTime();
+  return Math.round(Difference_In_Time / (1000 * 3600 * 24));
+};
 
 const Header = (props) => {
   const [percent, setPercent] = useState(0);
@@ -15,13 +19,18 @@ const Header = (props) => {
     setPercent(clamp(percent + n, 0, 100));
   };
 
-  //useEffect(() => {}, [percent]);
+  const calcScores = () => {
+    let actual = props.lists.current;
+    console.log(actual);
+  };
+
   return (
     <div className="header">
       <CountButton
         onClick={() => {
-          increase(20);
-          props.setDay(clamp(props.day.current + 1, 0, 5));
+          increase(20); //increase day bar
+          props.setDay(clamp(props.day.current + 1, 0, 5)); //incrase logic day
+          calcScores();
         }}
         max={5}
         start={0}
