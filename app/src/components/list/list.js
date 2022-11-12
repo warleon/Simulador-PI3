@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./list.css";
-import { Container } from "@mui/material";
 import { List as MuiList } from "@mui/material";
 import { ItemTypes } from "../../constants";
 import Task from "../task/task";
 import useRefState from "../../useRefState";
-import GameLogic from "../../gameLogic";
 
 import { useDrop } from "react-dnd";
 import { v4 as uuid } from "uuid";

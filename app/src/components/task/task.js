@@ -1,25 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./task.css";
-import { Container } from "@mui/material";
 import { useDrag } from "react-dnd";
 import ListItem from "@mui/material/ListItem";
 import { ItemTypes } from "../../constants";
 
-function formatDate(date) {
-  return (
-    date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-  );
-}
-
-
 const Task = (props) => {
   const getColorFromDate = (date) => {
-  let diff = date - props.day;
-  if (diff <= 2) return "red";
-  if (diff <= 4) return "yellow";
-  return "green";
-};
+    let diff = date - props.day;
+    if (diff <= 2) return "red";
+    if (diff <= 4) return "yellow";
+    return "green";
+  };
   const [collected, drag, dragPreview] = useDrag(() => ({
     type: ItemTypes.TASK,
     item: {
@@ -35,9 +27,7 @@ const Task = (props) => {
     },
   }));
 
-  const handleClick = () => {
-    const randomColors = "#" + Math.random().toString(16).slice(2, 8);
-  };
+  const handleClick = () => {};
   return (
     <ListItem
       style={{ backgroundColor: `${getColorFromDate(props.date)}` }}

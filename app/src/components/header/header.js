@@ -4,7 +4,6 @@ import "./header.css";
 import CountButton from "../countButton/countButton";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { useEffect, useState } from "react";
-import GameLogic from "../../gameLogic";
 
 const clamp = (number, min, max) => Math.max(min, Math.min(number, max));
 const dayDiff = (a, b) => {
@@ -23,41 +22,38 @@ const Header = (props) => {
     let point = 0;
     let actual = props.lists.current;
     console.log(actual);
-    for(let i = 0 ; i < actual.lenght; i++){
-      if(i === 1){
-        for(let j = 0; j < i.lenght; j++){
-        if(props.date <= 2){
-          point =+ 3; 
-        }else if(props.date > 4){
-          point =+ 1;
-        }
+    for (let j = 0; j < actual[1].lenght; j++) {
+      let diff = actual[1][j].date - props.day.current;
+      if (diff <= 2) {
+        point += 3;
+      } else if (diff > 4) {
+        point += 1;
       }
-      }else if(i === 2){
-        for(let j = 0; j < i.length; j++){
-          if(props.date <= 2){
-            point =+ 5; 
-          }else if(props.date > 4){
-            point =+ 1;
-          }
-        }
-      }else if( i === 3){
-        for(let j = 0; j < i.length; j++){
-          if(props.date <= 2){
-            point =+ 5; 
-          }else if(props.date > 4){
-            point =+ 1;
-          }
-        }
-      }else if(i === 4){
-        for(let j = 0; j < i.length; j++){
-          if(props.date <= 2){
-            point =+ 5; 
-          }else if(props.date <= 4){
-            point =+ 3;
-          }
-        }
-      }    
-    };
+    }
+    for (let j = 0; j < actual[2].length; j++) {
+      let diff = actual[2][j].date - props.day.current;
+      if (diff <= 2) {
+        point += 5;
+      } else if (diff > 4) {
+        point += 1;
+      }
+    }
+    for (let j = 0; j < actual[3].length; j++) {
+      let diff = actual[3][j].date - props.day.current;
+      if (diff <= 2) {
+        point += 5;
+      } else if (diff > 4) {
+        point += 1;
+      }
+    }
+    for (let j = 0; j < actual[4].length; j++) {
+      let diff = actual[4][j].date - props.day.current;
+      if (diff <= 2) {
+        point += 5;
+      } else if (diff <= 4) {
+        point += 3;
+      }
+    }
     console.log(point);
   };
 
@@ -67,6 +63,7 @@ const Header = (props) => {
         onClick={() => {
           increase(20); //increase day bar
           props.setDay(clamp(props.day.current + 1, 0, 5)); //incrase logic day
+          calcStress();
         }}
         max={5}
         start={0}

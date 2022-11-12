@@ -3,14 +3,8 @@ import PropTypes from "prop-types";
 import "./mainList.css";
 
 import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
 import List from "../list/list";
 
-function randomDate(start, end) {
-  return new Date(
-    start.getTime() + Math.random() * (end.getTime() - start.getTime())
-  );
-}
 const items = [...Array(10).keys()].map((_, i) => ({
   id: i,
   name: "curso " + i,
