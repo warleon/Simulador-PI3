@@ -13,12 +13,15 @@ const dayDiff = (a, b) => {
 
 const Header = (props) => {
   const [percent, setPercent] = useState(0);
+  const [stress, setStress] = useState(0);
 
   const increase = (n) => {
     setPercent(clamp(percent + n, 0, 100));
+    
   };
 
   const calcStress = () => {
+    
     let point = 0;
     let actual = props.lists.current;
     console.log(actual);
@@ -54,9 +57,10 @@ const Header = (props) => {
         point += 3;
       }
     }
-    console.log(point);
+    setStress(clamp(stress + point, 0, 100));
+    console.log(stress);
   };
-
+  
   return (
     <div className="header">
       <CountButton
@@ -75,7 +79,7 @@ const Header = (props) => {
       </div>
       <div>
         Stress
-        <ProgressBar percent={percent + "%"} />
+        <ProgressBar percent={stress + "%"} />
       </div>
     </div>
   );
