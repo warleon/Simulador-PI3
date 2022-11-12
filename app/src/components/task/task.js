@@ -12,16 +12,14 @@ function formatDate(date) {
   );
 }
 
-const getColorFromDate = (date) => {
-  let currentDate = new Date();
-  let Difference_In_Time = currentDate.getTime() - date.getTime();
-  let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-  let diff = Math.round(Difference_In_Days);
+
+const Task = (props) => {
+  const getColorFromDate = (date) => {
+  let diff = date - props.day;
   if (diff <= 2) return "red";
   if (diff <= 4) return "yellow";
   return "green";
 };
-const Task = (props) => {
   const [collected, drag, dragPreview] = useDrag(() => ({
     type: ItemTypes.TASK,
     item: {
@@ -50,7 +48,7 @@ const Task = (props) => {
       <section>
         <div>{props.id}</div>
         <div>{props.name}</div>
-        <div>{formatDate(props.date)}</div>
+        <div>Deadline: {props.date}</div>
       </section>
     </ListItem>
   );

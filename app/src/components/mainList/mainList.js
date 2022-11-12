@@ -15,7 +15,7 @@ const items = [...Array(10).keys()].map((_, i) => ({
   id: i,
   name: "curso " + i,
   //todo que la fecha sea entre hoy y 7 dias en adelante
-  date: randomDate(new Date(), new Date("2022/11/05")),
+  date: Math.floor(Math.random() * 5) + 1,
   color: "red",
 }));
 
@@ -37,6 +37,7 @@ const MainList = (props) => {
         sx={{ height: 1 }}
         setLists={props.setLists}
         lists={props.lists}
+        day={props.day}
       >
         {items}
       </List>

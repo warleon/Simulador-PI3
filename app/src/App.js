@@ -38,7 +38,7 @@ function App() {
           score={scoreRef}
           setScore={setScore}
         ></MainList>
-        <PriorityMatrix lists={listsRef} setLists={setLists}></PriorityMatrix>
+        <PriorityMatrix day={day} lists={listsRef} setLists={setLists}></PriorityMatrix>
       </Grid>
     </Grid>
   );

@@ -46,6 +46,7 @@ const List = (props) => {
     >
       {children.map((child, i) => (
         <Task
+          day={props.day}
           key={uuid()}
           parentId={props.id}
           {...child}

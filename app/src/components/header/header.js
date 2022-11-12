@@ -19,9 +19,46 @@ const Header = (props) => {
     setPercent(clamp(percent + n, 0, 100));
   };
 
-  const calcScores = () => {
+  const calcStress = () => {
+    let point = 0;
     let actual = props.lists.current;
     console.log(actual);
+    for(let i = 0 ; i < actual.lenght; i++){
+      if(i === 1){
+        for(let j = 0; j < i.lenght; j++){
+        if(props.date <= 2){
+          point =+ 3; 
+        }else if(props.date > 4){
+          point =+ 1;
+        }
+      }
+      }else if(i === 2){
+        for(let j = 0; j < i.length; j++){
+          if(props.date <= 2){
+            point =+ 5; 
+          }else if(props.date > 4){
+            point =+ 1;
+          }
+        }
+      }else if( i === 3){
+        for(let j = 0; j < i.length; j++){
+          if(props.date <= 2){
+            point =+ 5; 
+          }else if(props.date > 4){
+            point =+ 1;
+          }
+        }
+      }else if(i === 4){
+        for(let j = 0; j < i.length; j++){
+          if(props.date <= 2){
+            point =+ 5; 
+          }else if(props.date <= 4){
+            point =+ 3;
+          }
+        }
+      }    
+    };
+    console.log(point);
   };
 
   return (
@@ -30,7 +67,6 @@ const Header = (props) => {
         onClick={() => {
           increase(20); //increase day bar
           props.setDay(clamp(props.day.current + 1, 0, 5)); //incrase logic day
-          calcScores();
         }}
         max={5}
         start={0}
