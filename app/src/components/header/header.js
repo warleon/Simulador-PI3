@@ -11,17 +11,24 @@ const dayDiff = (a, b) => {
   return Math.round(Difference_In_Time / (1000 * 3600 * 24));
 };
 
+function randTask(i) {
+  return {
+    id: i,
+    name: "curso " + i,
+    //todo que la fecha sea entre hoy y 7 dias en adelante
+    date: Math.floor(Math.random() * 5) + 1,
+    color: "red",
+  };
+}
 const Header = (props) => {
   const [percent, setPercent] = useState(0);
   const [stress, setStress] = useState(0);
 
   const increase = (n) => {
     setPercent(clamp(percent + n, 0, 100));
-    
   };
 
   const calcStress = () => {
-    
     let point = 0;
     let actual = props.lists.current;
     console.log(actual);
@@ -60,7 +67,7 @@ const Header = (props) => {
     setStress(clamp(stress + point, 0, 100));
     console.log(stress);
   };
-  
+
   return (
     <div className="header">
       <CountButton
@@ -81,6 +88,18 @@ const Header = (props) => {
         Stress
         <ProgressBar percent={stress + "%"} />
       </div>
+      <button
+        onClick={() => {
+          let t = randTask(10);
+          let newLists = props.lists.current;
+          let result = [...newLists[0], t];
+          newLists[0] = result;
+          let listscopy = [...newLists];
+          props.setLists(listscopy);
+        }}
+      >
+        Add Task
+      </button>
     </div>
   );
 };

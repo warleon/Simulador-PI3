@@ -9,22 +9,25 @@ import Header from "./components/header/header";
 import { useEffect, useState } from "react";
 import useRefState from "./useRefState";
 import Popup from "./components/popup/popup";
-const items = [...Array(10).keys()].map((_, i) => ({
-  id: i,
-  name: "curso " + i,
-  //todo que la fecha sea entre hoy y 7 dias en adelante
-  date: Math.floor(Math.random() * 5) + 1,
-  color: "red",
-}));
+function randTask(i) {
+  return {
+    id: i,
+    name: "curso " + i,
+    //todo que la fecha sea entre hoy y 7 dias en adelante
+    date: Math.floor(Math.random() * 5) + 1,
+    color: "red",
+  };
+}
+const items = [...Array(10).keys()].map((_, i) => randTask(i));
 
 function App() {
   const [day, dayRef, setDay] = useRefState(0);
   const [score, scoreRef, setScore] = useRefState(0);
   const [lists, listsRef, setLists] = useRefState([items, [], [], [], []]);
   const [buttonPopup, setButtonPopup] = useState(false);
-  useEffect(() => {
-    console.log(listsRef.current);
-  }, [lists]);
+  // useEffect(() => {
+  //   console.log(listsRef.current);
+  // }, [lists]);
 
   return (
     <Grid
@@ -39,6 +42,7 @@ function App() {
           score={score}
           day={dayRef}
           setDay={setDay}
+          setLists={setLists}
         ></Header>
         <button className="completed" onClick={() => setButtonPopup(true)}>
           Completed Tasks
