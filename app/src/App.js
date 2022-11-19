@@ -8,11 +8,13 @@ import MainList from "./components/mainList/mainList";
 import Header from "./components/header/header";
 import { useEffect, useState } from "react";
 import useRefState from "./useRefState";
+import Popup from "./components/popup/popup";
 
 function App() {
   const [day, dayRef, setDay] = useRefState(0);
   const [score, scoreRef, setScore] = useRefState(0);
   const [lists, listsRef, setLists] = useRefState([[], [], [], [], []]);
+  const[buttonPopup, setButtonPopup] = useState(false)
 
   return (
     <Grid
@@ -28,6 +30,10 @@ function App() {
           day={dayRef}
           setDay={setDay}
         ></Header>
+        <button className="completed" onClick={() => setButtonPopup(true)}>Completed Tasks</button>
+        <Popup trigger ={buttonPopup} setTrigger={setButtonPopup}>
+
+        </Popup>
       </Grid>
 
       <Grid item container sx={{ height: 85 / 100 }}>
