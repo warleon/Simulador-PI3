@@ -10,30 +10,27 @@ import { useDrop } from "react-dnd";
 import { v4 as uuid } from "uuid";
 
 const List = (props) => {
-  const [children, childrenRef, setChildren] = useRefState(
-    props.children !== undefined ? props.children : []
-  );
-
   const [collected, drop] = useDrop(() => ({
     accept: ItemTypes.TASK,
     drop: (item, monitor) => {
       if (item.prevParentId !== props.id) {
         delete item.prevParentId;
-        const result = [...childrenRef.current, item];
-        setChildren(result);
         let newLists = props.lists.current;
+        let result = [...newLists[props.id], item];
         newLists[props.id] = result;
-        props.setLists(newLists);
+        let listscopy = [...newLists];
+        props.setLists(listscopy);
       }
       return { parentId: props.id };
     },
   }));
   function handleRemove(id, pid) {
-    const newList = childrenRef.current.filter((item) => item.id !== id);
-    setChildren(newList);
+    const newList = props.lists.current[pid].filter((item) => item.id !== id);
     let newLists = props.lists.current;
     newLists[pid] = newList;
-    props.setLists(newLists);
+    let listscopy = [...newLists];
+    props.setLists(listscopy);
+    //props.setLists(newLists);
   }
 
   return (
@@ -42,7 +39,7 @@ const List = (props) => {
       ref={drop}
       style={{ maxHeight: "100%", overflow: "auto", padding: 0 }}
     >
-      {children.map((child, i) => (
+      {props.lists.current[props.id].map((child, i) => (
         <Task
           day={props.day}
           key={uuid()}
