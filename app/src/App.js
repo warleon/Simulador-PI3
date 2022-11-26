@@ -14,7 +14,7 @@ function randTask(i) {
     id: i,
     name: "curso " + i,
     //todo que la fecha sea entre hoy y 7 dias en adelante
-    date: Math.floor(Math.random() * 5) + 1,
+    date: Math.floor(Math.random() * 7) + 1,
     color: "red",
   };
 }
@@ -43,6 +43,7 @@ function App() {
           day={dayRef}
           setDay={setDay}
           setLists={setLists}
+          getTask={randTask}
         ></Header>
         <button className="completed" onClick={() => setButtonPopup(true)}>
           Completed Tasks

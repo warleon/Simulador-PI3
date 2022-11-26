@@ -4,6 +4,7 @@ import "./header.css";
 import CountButton from "../countButton/countButton";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { useEffect, useState } from "react";
+import Task from "../task/task";
 
 const clamp = (number, min, max) => Math.max(min, Math.min(number, max));
 const dayDiff = (a, b) => {
@@ -11,18 +12,11 @@ const dayDiff = (a, b) => {
   return Math.round(Difference_In_Time / (1000 * 3600 * 24));
 };
 
-function randTask(i) {
-  return {
-    id: i,
-    name: "curso " + i,
-    //todo que la fecha sea entre hoy y 7 dias en adelante
-    date: Math.floor(Math.random() * 5) + 1,
-    color: "red",
-  };
-}
 const Header = (props) => {
   const [percent, setPercent] = useState(0);
   const [stress, setStress] = useState(0);
+  const [task, setTask] = useState(props.getTask(props.day.current));
+  const [accept, setAccept] = useState(false);
 
   const increase = (n) => {
     setPercent(clamp(percent + n, 0, 100));
@@ -75,6 +69,8 @@ const Header = (props) => {
           increase(20); //increase day bar
           props.setDay(clamp(props.day.current + 1, 0, 5)); //incrase logic day
           calcStress();
+          setAccept(false);
+          setTask(props.getTask(props.day.current));
         }}
         max={5}
         start={0}
@@ -88,18 +84,24 @@ const Header = (props) => {
         Stress
         <ProgressBar percent={stress + "%"} />
       </div>
-      <button
-        onClick={() => {
-          let t = randTask(10);
-          let newLists = props.lists.current;
-          let result = [...newLists[0], t];
-          newLists[0] = result;
-          let listscopy = [...newLists];
-          props.setLists(listscopy);
-        }}
-      >
-        Add Task
-      </button>
+      <div>
+        <Task {...task}></Task>
+        <button
+          className="btn-dias"
+          onClick={() => {
+            if (!accept) {
+              let newLists = props.lists.current;
+              let result = [...newLists[0], task];
+              newLists[0] = result;
+              let listscopy = [...newLists];
+              props.setLists(listscopy);
+              setAccept(true);
+            }
+          }}
+        >
+          Add Task
+        </button>
+      </div>
     </div>
   );
 };
