@@ -18,6 +18,7 @@ function randTask(i) {
     color: "red",
   };
 }
+
 const items = [...Array(10).keys()].map((_, i) => randTask(i));
 
 function App() {
@@ -25,9 +26,20 @@ function App() {
   const [score, scoreRef, setScore] = useRefState(0);
   const [lists, listsRef, setLists] = useRefState([items, [], [], [], []]);
   const [buttonPopup, setButtonPopup] = useState(false);
-  // useEffect(() => {
-  //   console.log(listsRef.current);
-  // }, [lists]);
+  const addNewTask = () => {};
+  useEffect(() => {
+    const token = setTimeout(addNewTask, 1000 * 13);
+    return function cleanUp() {
+      clearTimeout(token);
+    };
+  });
+  const addToList = (i, obj) => {
+    let newLists = listsRef.current;
+    let result = [...newLists[i], obj];
+    newLists[i] = result;
+    let listscopy = [...newLists];
+    setLists(listscopy);
+  };
 
   return (
     <Grid
