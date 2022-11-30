@@ -5,6 +5,9 @@ import CountButton from "../countButton/countButton";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { useEffect, useState } from "react";
 import Task from "../task/task";
+import Grid from "@mui/material/Grid";
+import Popup from "../popup/popup";
+
 
 const clamp = (number, min, max) => Math.max(min, Math.min(number, max));
 const dayDiff = (a, b) => {
@@ -12,11 +15,16 @@ const dayDiff = (a, b) => {
   return Math.round(Difference_In_Time / (1000 * 3600 * 24));
 };
 
+
+
+
 const Header = (props) => {
   const [percent, setPercent] = useState(0);
   const [stress, setStress] = useState(0);
   const [task, setTask] = useState(props.getTask(props.day.current));
   const [accept, setAccept] = useState(false);
+  const [popuptasks, setButtonPopUpTasks] = useState(false);
+
 
   const increase = (n) => {
     setPercent(clamp(percent + n, 0, 100));
@@ -62,7 +70,7 @@ const Header = (props) => {
     console.log(stress);
   };
 
-  return (
+  return(
     <div className="header">
       <CountButton
         onClick={() => {
@@ -87,7 +95,7 @@ const Header = (props) => {
       <div>
         <Task {...task}></Task>
         <button
-          className="btn-dias"
+          className="btn-AT"
           onClick={() => {
             if (!accept) {
               let newLists = props.lists.current;
@@ -101,6 +109,11 @@ const Header = (props) => {
         >
           Add Task
         </button>
+        <button className="btn-NT" onClick={() => setButtonPopUpTasks(true)}>
+        New Tasks
+        </button>
+        <Popup trigger={popuptasks} setTrigger={setButtonPopUpTasks}></Popup>
+
       </div>
     </div>
   );
