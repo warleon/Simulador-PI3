@@ -18,6 +18,7 @@ function randTask(i) {
     color: "red",
   };
 }
+
 const items = [...Array(10).keys()].map((_, i) => randTask(i));
 
 function App() {
