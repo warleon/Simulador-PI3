@@ -13,7 +13,7 @@ const dayDiff = (a, b) => {
   let Difference_In_Time = a.getTime() - b.getTime();
   return Math.round(Difference_In_Time / (1000 * 3600 * 24));
 };
-
+let idcount = 10;
 const Header = (props) => {
   const [percent, setPercent] = useState(0);
   const [stress, setStress] = useState(0);
@@ -27,8 +27,8 @@ const Header = (props) => {
   };
   useEffect(() => {
     const token = setTimeout(() => {
-      props.setList(6, props.getTask());
-    }, 1000 * 1);
+      props.setList(6, props.getTask(idcount++));
+    }, 1000 * 13);
     return function cleanUp() {
       clearTimeout(token);
     };
@@ -107,7 +107,6 @@ const Header = (props) => {
             setLists={props.setLists}
             lists={props.lists}
             day={props.day}
-
           ></List>
         </Popup>
         <button className="completed" onClick={() => setButtonPopup(true)}>

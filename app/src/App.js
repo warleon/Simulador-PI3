@@ -19,7 +19,7 @@ function randTask(i) {
   };
 }
 
-const items = [...Array(10).keys()].map((_, i) => randTask(i));
+const items = [...Array(6).keys()].map((_, i) => randTask(i));
 
 function App() {
   const [day, dayRef, setDay] = useRefState(0);
@@ -67,6 +67,7 @@ function App() {
           day={dayRef}
           setDay={setDay}
           setList={addToList}
+          setLists={setLists}
           getTask={randTask}
         ></Header>
       </Grid>
