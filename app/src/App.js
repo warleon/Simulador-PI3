@@ -24,21 +24,33 @@ const items = [...Array(10).keys()].map((_, i) => randTask(i));
 function App() {
   const [day, dayRef, setDay] = useRefState(0);
   const [score, scoreRef, setScore] = useRefState(0);
-  const [lists, listsRef, setLists] = useRefState([items, [], [], [], []]);
-  const [buttonPopup, setButtonPopup] = useState(false);
-  const addNewTask = () => {};
-  useEffect(() => {
-    const token = setTimeout(addNewTask, 1000 * 13);
-    return function cleanUp() {
-      clearTimeout(token);
-    };
-  });
+  const [lists, listsRef, setLists] = useRefState([
+    items, //initial tasks 0
+    [], // first cuadrant 1
+    [], // second cuadrant 2
+    [], // third cuadrant 3
+    [], // fourth cuadrant 4
+    [], // completed tasks 5
+    [], // new tasks 6
+  ]);
   const addToList = (i, obj) => {
     let newLists = listsRef.current;
     let result = [...newLists[i], obj];
     newLists[i] = result;
     let listscopy = [...newLists];
     setLists(listscopy);
+  };
+  const removeOutdated = () => {
+    let curLists = listsRef.current;
+    for (let i = 1; i < 5; i++) {
+      for (let j = 0; j < curLists[i].length; j++) {
+        if (curLists[i][j].date > day) {
+          addToList(5, curLists[i][j]);
+          curLists[i].splice(j, 1);
+          j -= 1;
+        }
+      }
+    }
   };
 
   return (
@@ -54,13 +66,9 @@ function App() {
           score={score}
           day={dayRef}
           setDay={setDay}
-          setLists={setLists}
+          setList={addToList}
           getTask={randTask}
         ></Header>
-        <button className="completed" onClick={() => setButtonPopup(true)}>
-          Completed Tasks
-        </button>
-        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}></Popup>
       </Grid>
 
       <Grid item container sx={{ height: 85 / 100 }}>

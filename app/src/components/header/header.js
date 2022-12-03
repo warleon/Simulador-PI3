@@ -4,10 +4,9 @@ import "./header.css";
 import CountButton from "../countButton/countButton";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { useEffect, useState } from "react";
-import Task from "../task/task";
+import List from "../list/list";
 import Grid from "@mui/material/Grid";
 import Popup from "../popup/popup";
-
 
 const clamp = (number, min, max) => Math.max(min, Math.min(number, max));
 const dayDiff = (a, b) => {
@@ -15,20 +14,25 @@ const dayDiff = (a, b) => {
   return Math.round(Difference_In_Time / (1000 * 3600 * 24));
 };
 
-
-
-
 const Header = (props) => {
   const [percent, setPercent] = useState(0);
   const [stress, setStress] = useState(0);
   const [task, setTask] = useState(props.getTask(props.day.current));
   const [accept, setAccept] = useState(false);
   const [popuptasks, setButtonPopUpTasks] = useState(false);
-
+  const [buttonPopup, setButtonPopup] = useState(false);
 
   const increase = (n) => {
     setPercent(clamp(percent + n, 0, 100));
   };
+  useEffect(() => {
+    const token = setTimeout(() => {
+      props.setList(6, props.getTask());
+    }, 1000 * 1);
+    return function cleanUp() {
+      clearTimeout(token);
+    };
+  });
 
   const calcStress = () => {
     let point = 0;
@@ -70,7 +74,7 @@ const Header = (props) => {
     console.log(stress);
   };
 
-  return(
+  return (
     <div className="header">
       <CountButton
         onClick={() => {
@@ -93,27 +97,30 @@ const Header = (props) => {
         <ProgressBar percent={stress + "%"} />
       </div>
       <div>
-        <Task {...task}></Task>
-        <button
-          className="btn-AT"
-          onClick={() => {
-            if (!accept) {
-              let newLists = props.lists.current;
-              let result = [...newLists[0], task];
-              newLists[0] = result;
-              let listscopy = [...newLists];
-              props.setLists(listscopy);
-              setAccept(true);
-            }
-          }}
-        >
-          Add Task
-        </button>
         <button className="btn-NT" onClick={() => setButtonPopUpTasks(true)}>
-        New Tasks
+          New Tasks
         </button>
-        <Popup trigger={popuptasks} setTrigger={setButtonPopUpTasks}></Popup>
-
+        <Popup trigger={popuptasks} setTrigger={setButtonPopUpTasks}>
+          <List
+            id={6}
+            sx={{ height: 1 }}
+            setLists={props.setLists}
+            lists={props.lists}
+            day={props.day}
+          ></List>
+        </Popup>
+        <button className="completed" onClick={() => setButtonPopup(true)}>
+          Completed Tasks
+        </button>
+        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+          <List
+            id={5}
+            sx={{ height: 1 }}
+            setLists={props.setLists}
+            lists={props.lists}
+            day={props.day}
+          ></List>
+        </Popup>
       </div>
     </div>
   );
