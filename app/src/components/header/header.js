@@ -107,6 +107,7 @@ const Header = (props) => {
             setLists={props.setLists}
             lists={props.lists}
             day={props.day}
+
           ></List>
         </Popup>
         <button className="completed" onClick={() => setButtonPopup(true)}>
